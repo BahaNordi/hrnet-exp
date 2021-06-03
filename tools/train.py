@@ -48,7 +48,7 @@ def parse_args():
                         nargs=argparse.REMAINDER)
 
     # args = parser.parse_args()
-    args = parser.parse_args(["--cfg", "/home/baha/codes/HRNet-Semantic-Segmentation/experiments/cityscapes/seg_hrnet_w48_train_512x1024_sgd_lr1e-2_wd5e-4_bs_12_epoch484.yaml"])
+    args = parser.parse_args(["--cfg", "/home/baha/codes/hrnet-exp/experiments/cityscapes/seg_hrnet_w48_train_512x1024_sgd_lr1e-2_wd5e-4_bs_12_epoch484.yaml"])
 
     update_config(config, args)
 
