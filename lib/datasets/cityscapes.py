@@ -35,19 +35,14 @@ class Cityscapes(BaseDataset):
                 crop_size, downsample_rate, scale_factor, mean, std,)
 
         self.root = root
-        print("1")
-        print(root)
-        print("2")
         self.list_path = list_path
-        print(list_path)
-        print("3")
         self.num_classes = num_classes
 
         self.multi_scale = multi_scale
         self.flip = flip
         
         self.img_list = [line.strip().split() for line in open(root+list_path)]
-        print(self.img_list)
+
 
         self.files = self.read_files()
         if num_samples:
@@ -106,10 +101,8 @@ class Cityscapes(BaseDataset):
     def __getitem__(self, index):
         item = self.files[index]
         name = item["name"]
-        print(name)
         image = cv2.imread(os.path.join(self.root,'cityscapes',item["img"]),
                            cv2.IMREAD_COLOR)
-        print(os.path.join(self.root, item["img"]))
         # image = cv2.imread(os.path.join(self.root, item["img"]),
         #                    cv2.IMREAD_COLOR)
         # print(image)
