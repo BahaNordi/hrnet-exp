@@ -10,7 +10,7 @@ PRINT_FREQ: 100
 
 DATASET:
   DATASET: cityscapes
-  ROOT: '/content/gdrive/MyDrive/Colab_Notebooks/hrnet/data/list/cityscapes/'
+  ROOT: '/content/gdrive/MyDrive/Colab_Notebooks/hrnet/data/'
   TEST_SET: 'val.lst'
   TRAIN_SET: 'train.lst'
   NUM_CLASSES: 19
