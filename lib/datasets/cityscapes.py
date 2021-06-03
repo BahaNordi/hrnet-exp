@@ -35,6 +35,7 @@ class Cityscapes(BaseDataset):
                 crop_size, downsample_rate, scale_factor, mean, std,)
 
         self.root = root
+        print(root)
         self.list_path = list_path
         self.num_classes = num_classes
 
