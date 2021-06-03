@@ -47,6 +47,7 @@ class Cityscapes(BaseDataset):
         self.flip = flip
         
         self.img_list = [line.strip().split() for line in open(root+list_path)]
+        print(self.img_list)
 
         self.files = self.read_files()
         if num_samples:
