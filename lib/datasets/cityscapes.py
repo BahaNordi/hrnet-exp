@@ -39,6 +39,8 @@ class Cityscapes(BaseDataset):
         print(root)
         print("2")
         self.list_path = list_path
+        print(list_path)
+        print("3")
         self.num_classes = num_classes
 
         self.multi_scale = multi_scale
