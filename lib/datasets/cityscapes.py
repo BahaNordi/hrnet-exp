@@ -109,14 +109,10 @@ class Cityscapes(BaseDataset):
         print(name)
         # image = cv2.imread(os.path.join(self.root,'cityscapes',item["img"]),
         #                    cv2.IMREAD_COLOR)
-        # image = cv2.imread(os.path.join(self.root, item["img"]),
-        #                    cv2.IMREAD_COLOR)
-        image = os.path.join(self.root, item["img"])
-
-        os.chdir(image)
-        for i in os.listdir(image):
-            img = cv2.imread(i, cv2.IMREAD_COLOR)
-        print(image)
+        print(os.path.join(self.root, item["img"]))
+        image = cv2.imread(os.path.join(self.root, item["img"]),
+                           cv2.IMREAD_COLOR)
+        # print(image)
         size = image.shape
 
         if 'test' in self.list_path:
