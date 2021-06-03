@@ -49,7 +49,7 @@ def parse_args():
                         nargs=argparse.REMAINDER)
 
     # args = parser.parse_args()
-    args = parser.parse_args(["--cfg", "/home/baha/codes/hrnetexp/experiments/cityscapes/seg_hrnet_w48_train_512x1024_sgd_lr1e-2_wd5e-4_bs_12_epoch484-colab.yaml"])
+    args = parser.parse_args(["--cfg", "/content/gdrive/MyDrive/Colab_Notebooks/hrnet/seg_hrnet_w48_train_512x1024_sgd_lr1e-2_wd5e-4_bs_12_epoch484-colab.yaml"])
 
     update_config(config, args)
 
