@@ -96,7 +96,7 @@ def main():
         torch.distributed.init_process_group(
             backend="nccl", init_method="env://",
         )
-    dist.init_process_group("gloo", rank=0, world_size=1)
+    dist.init_process_group("gloo", init_method="env://", rank=0, world_size=1)
     # build model
     model = eval('models.'+config.MODEL.NAME +
                  '.get_seg_model')(config)
