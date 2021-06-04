@@ -94,7 +94,7 @@ def main():
         device = torch.device('cuda:{}'.format(args.local_rank))    
         torch.cuda.set_device(device)
         torch.distributed.init_process_group(
-            backend="nccl", init_method="env://",
+            backend="nccl", init_method="env://",  rank=0, world_size=1
         )
     # dist.init_process_group("gloo", init_method="env://", rank=0, world_size=1)
     # build model
