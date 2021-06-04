@@ -92,7 +92,7 @@ def main():
     model.load_state_dict(model_dict)
 
     gpus = list(config.GPUS)
-    model = nn.DataParallel(model, device_ids=0).cuda()
+    model = nn.DataParallel(model, device_ids=gpus).cuda()
 
     # prepare data
     test_size = (config.TEST.IMAGE_SIZE[1], config.TEST.IMAGE_SIZE[0])

@@ -209,11 +209,11 @@ def main():
         model = torch.nn.parallel.DistributedDataParallel(
             model,
             find_unused_parameters=True,
-            device_ids=[args.local_rank],
-            output_device=args.local_rank
+            device_ids=[0], #args.local_rank
+            output_device=0
         )
     else:
-        model = nn.DataParallel(model, device_ids=gpus).cuda()
+        model = nn.DataParallel(model, device_ids=0).cuda()  #gpus
     
 
     # optimizer
