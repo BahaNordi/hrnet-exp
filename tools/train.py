@@ -209,7 +209,7 @@ def main():
         model = torch.nn.parallel.DistributedDataParallel(
             model,
             find_unused_parameters=True,
-            device_ids=[0], #args.local_rank
+            device_ids=0, #[args.local_rank]
             output_device=0
         )
     else:
