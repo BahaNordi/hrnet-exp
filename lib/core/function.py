@@ -23,7 +23,8 @@ from utils.utils import adjust_learning_rate
 import utils.distributed as dist
 import torch.distributed as torch_dist
 
-torch_dist.init_process_group('gloo', rank=0, world_size=1)
+torch_dist.init_process_group(backend='nccl', init_method='env://', rank=0, world_size=1)
+
 
 def reduce_tensor(inp):
     """
