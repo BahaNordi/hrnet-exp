@@ -16,7 +16,6 @@ import timeit
 from pathlib import Path
 
 import numpy as np
-import torch.distributed as dist
 import torch
 import torch.nn as nn
 import torch.backends.cudnn as cudnn
@@ -91,12 +90,12 @@ def main():
     gpus = list(config.GPUS)
     distributed = args.local_rank >= 0
 
-    # if distributed:
-    #     device = torch.device('cuda:{}'.format(args.local_rank))
-    #     torch.cuda.set_device(device)
-    #     torch.distributed.init_process_group(
-    #         backend="nccl", init_method="env://",
-    #     )
+    if distributed:
+        device = torch.device('cuda:{}'.format(args.local_rank))
+        torch.cuda.set_device(device)
+        torch.distributed.init_process_group(
+            backend="nccl", init_method="env://",
+        )
     # dist.init_process_group("gloo", init_method="env://", rank=0, world_size=1)
     # build model
     model = eval('models.'+config.MODEL.NAME +
