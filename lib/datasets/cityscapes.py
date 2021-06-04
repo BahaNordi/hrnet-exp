@@ -101,10 +101,10 @@ class Cityscapes(BaseDataset):
     def __getitem__(self, index):
         item = self.files[index]
         name = item["name"]
-        print(name)
+        print(self.root)
         image = cv2.imread(os.path.join(self.root,'cityscapes',item["img"]),
                            cv2.IMREAD_COLOR)
-        print(os.path.join(self.root,'cityscapes',item["img"]))
+        # print(os.path.join(self.root,'cityscapes',item["img"]))
         # image = cv2.imread(os.path.join(self.root, item["img"]),
         #                    cv2.IMREAD_COLOR)
         # print(image)
