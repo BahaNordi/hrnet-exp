@@ -213,7 +213,7 @@ def main():
             output_device=args.local_rank
         )
     else:
-        model = nn.DataParallel(model, device_ids=[0]).cuda()
+        model = nn.DataParallel(model, device_ids=(0,)).cuda()
     
 
     # optimizer
