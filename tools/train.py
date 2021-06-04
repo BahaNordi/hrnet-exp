@@ -16,7 +16,7 @@ import timeit
 from pathlib import Path
 
 import numpy as np
-
+import torch.distributed as dist
 import torch
 import torch.nn as nn
 import torch.backends.cudnn as cudnn
@@ -95,8 +95,8 @@ def main():
         torch.cuda.set_device(device)
         torch.distributed.init_process_group(
             backend="nccl", init_method="env://",
-        )        
-
+        )
+    dist.init_process_group("gloo", rank=0, world_size=1)
     # build model
     model = eval('models.'+config.MODEL.NAME +
                  '.get_seg_model')(config)
