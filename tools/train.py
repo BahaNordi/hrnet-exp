@@ -21,6 +21,7 @@ import torch.nn as nn
 import torch.backends.cudnn as cudnn
 import torch.optim
 from tensorboardX import SummaryWriter
+import torch.distributed as torch_dist
 
 from hrnetexp.tools import _init_paths
 # import _init_paths
@@ -213,7 +214,8 @@ def main():
             output_device=args.local_rank
         )
     else:
-        model = nn.DataParallel(model, device_ids=(0,)).cuda()
+        model = nn.DataParallel(model, device_ids=gpus).cuda()
+        torch_dist.init_process_group('gloo', init_method='file:///tmp/somefile', rank=0, world_size=1)
     
 
     # optimizer
